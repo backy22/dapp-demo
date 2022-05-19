@@ -1,62 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import { ethers } from 'ethers';
 
 function App() {
   const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState('');
-  const [account, setAccount] = useState('');
-
-  const greetingContractAddress = '0x2287786991A37fF7237AcE1d0dc3512573EceBfD';
-  const greetingContractABI = [
-    {
-      "inputs": [
-        {
-          "internalType": "string",
-          "name": "_greeting",
-          "type": "string"
-        }
-      ],
-      "name": "postGreeting",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "getGreeting",
-      "outputs": [
-        {
-          "internalType": "string",
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ];
-
-  const [greetingContract, setGreetingContract] = useState(null);
-
-  const connectAccount = async () => {
-    const { ethereum } = window;
-    const provider = new ethers.providers.Web3Provider(ethereum)
-    const accounts = await provider.listAccounts()
-    setAccount(accounts[0])
-  }
-
-  useEffect(() => {
-    connectAccount();
-    if (account) {
-      const { ethereum } = window;
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      console.log('signer', signer);
-      const _greetingContract = new ethers.Contract(greetingContractAddress, greetingContractABI, signer);
-      setGreetingContract(_greetingContract);
-    }
-  }, [account]);
 
   const handleChange = (e) => {
     setGreeting(e.target.value);
@@ -68,14 +15,9 @@ function App() {
   }
 
   const postGreeting = async() => {
-    const postGreetingPromise = greetingContract.postGreeting(greeting);
-    await postGreetingPromise;
   }
 
   const getGreeting = async() => {
-    const getGreetingPromise = greetingContract.getGreeting();
-    const Greeting = await getGreetingPromise;
-    setResult(Greeting);
   }
 
   return (
