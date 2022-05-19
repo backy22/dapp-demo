@@ -39,7 +39,7 @@ npm start
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.7;
 
-contract Greeting {
+contract GreetingContract {
     string greeting;
 
     //create a function that writes a greeting to the smart contract
@@ -54,6 +54,7 @@ contract Greeting {
 
 }
 ```
+
 - Connect to the wallet
 - Compile
 - Deploy
@@ -69,6 +70,41 @@ contract Greeting {
 ### Modify the smart contract
 
 - Use array instead of string
+
+```javascript
+string[] greetings;
+
+
+function getAllGreetings() public view returns(string[] memory) {
+    return greetings;
+}
+```
+
+- Use struct
+
+```javascript
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.7;
+
+contract GreetingContract {
+
+    struct Greeting {
+        address sender;
+        string greeting;
+    }
+
+    Greeting[] public greetings;
+
+    function postGreeting(string memory _greeting) public {
+        greetings.push(Greeting(msg.sender, _greeting));
+    }
+
+    function getAllGreetings() public view returns(Greeting[] memory) {
+        return greetings;
+    }
+
+}
+```
 ### Polygon
 
 - Deploy on Polygon chain
