@@ -13,7 +13,7 @@
   }
 }
 
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -22,6 +22,46 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+form {
+  text-align: left;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 10px 0;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #02c9c9;
+}
+
+.submit-btn:hover {
+  background-color: #00b8b8;
+}
+
+.get-btn {
+  background-color: #e8a0b8;
+}
+
+.get-btn:hover {
+  background-color: #d890a8;
 }
 
 .App-link {

@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Developing your first Dapp (QM talk)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- Basic knowledge
+- What I do demo today
+- Prerequisites
+- Web page with React
+- Solidiy smart contract
+- Connect the web page with the smart contracts
+- Advanced
+  - Modify the smart contract
+  - Polygon
+  - Hardhat
+## Basic knowledge
 
-## Available Scripts
+Dapp(A decentralized application): an application built on a decentralized network that combines a smart contract and a frontend user interface.
+Solidity: a programming language for smart contracts
 
-In the project directory, you can run:
+## What I do demo today
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Metamask Chrome extension
+- [Testnet faucet](https://faucet.paradigm.xyz/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Web page with React
 
-### `npm test`
+```
+npx create-react-app dapp-demo
+cd dapp-demo
+npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Solidiy smart contract
 
-### `npm run build`
+- Go to [Remix](https://remix.ethereum.org/): online IDE(integrated development environment)
+- Write a contract
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```javascript
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.7;
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+contract Greeting {
+    string greeting;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    //create a function that writes a greeting to the smart contract
+    function postGreeting(string memory _greeting) public{
+        greeting = _greeting;
+    }
+    
+    //create a function the reads the greeting from the smart contract
+    function getGreeting() public view returns(string memory){
+        return greeting;
+    }
 
-### `npm run eject`
+}
+```
+- Connect to the wallet
+- Compile
+- Deploy
+  - Select `Injected Web3`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Connect the web page with the smart contracts
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Import the Ethers.js
+- Copy and paste the contract address
+- Copy and paste ABI(Application Binary Interface): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+## Advanced
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Modify the smart contract
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Use array instead of string
+### Polygon
 
-## Learn More
+- Deploy on Polygon chain
+### Hardhat
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
