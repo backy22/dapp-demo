@@ -1,25 +1,34 @@
 # Developing your first Dapp (QM talk)
 
-- Basic knowledge
-- What I do demo today
-- Prerequisites
-- Web page with React
-- Solidiy smart contract
-- Connect the web page with the smart contracts
-- Advanced
-  - Modify the smart contract
-  - Polygon
-  - Hardhat
+## Table of Contents
+- [Developing your first Dapp (QM talk)](#developing-your-first-dapp-qm-talk)
+  - [Table of Contents](#table-of-contents)
+  - [Basic knowledge](#basic-knowledge)
+  - [What I do demo today](#what-i-do-demo-today)
+  - [Prerequisites](#prerequisites)
+  - [Web page with React](#web-page-with-react)
+  - [Solidiy smart contract](#solidiy-smart-contract)
+  - [Connect the web page with the smart contracts](#connect-the-web-page-with-the-smart-contracts)
+  - [Advanced](#advanced)
+    - [Modify the smart contract](#modify-the-smart-contract)
+    - [Deploy on Polygon](#deploy-on-polygon)
+    - [Hardhat](#hardhat)
 ## Basic knowledge
 
-Dapp(A decentralized application): an application built on a decentralized network that combines a smart contract and a frontend user interface.
-Solidity: a programming language for smart contracts
+- Dapp(A decentralized application): an application built on a decentralized network that combines a smart contract and a frontend user interface.
+- Blockchain:
+- Smart Contract:
+- Ethereun:
+- Solidity: a programming language for smart contracts
+- Web3:
 
 ## What I do demo today
 
+![diagram](/dapp-diagram.png)
+
 ## Prerequisites
 
-- Metamask Chrome extension
+- [Metamask Chrome extension](https://metamask.io/)
 - [Testnet faucet](https://faucet.paradigm.xyz/)
 
 ## Web page with React
@@ -29,6 +38,8 @@ npx create-react-app dapp-demo
 cd dapp-demo
 npm start
 ```
+
+https://github.com/backy22/dapp-demo/tree/starter
 
 ## Solidiy smart contract
 
@@ -56,15 +67,26 @@ contract GreetingContract {
 ```
 
 - Connect to the wallet
+  - Select Rinkeby network
 - Compile
 - Deploy
   - Select `Injected Web3`
+  - Gas
+- Check on Etherscan
+- Test on Remix
 
 ## Connect the web page with the smart contracts
 
-- Import the Ethers.js
+- Import the [Ethers.js](https://docs.ethers.io/v5/)
+  - Ethers.js: Ethereum Web Client Library. Interact with Ethereum Blockchain from client-side.
+
+```
+npm i ethers
+```
+
 - Copy and paste the contract address
-- Copy and paste ABI(Application Binary Interface): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+- Copy and paste ABI(Application Binary Interface)
+  - ABI: Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
 ## Advanced
 
 ### Modify the smart contract
@@ -105,8 +127,15 @@ contract GreetingContract {
 
 }
 ```
-### Polygon
+### Deploy on Polygon
 
-- Deploy on Polygon chain
+- What is Polygon?
+- Why Polygon?
+- Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
+  - Network: 
+- Faucet
+- Connect Polygon network on Remix and deploy (same process)
 ### Hardhat
 
+- What is [Hardhat](https://hardhat.org/)?
+  - Hardhat: Ethereum Developement environment(EVM)
