@@ -45,21 +45,27 @@ https://github.com/backy22/dapp-demo/tree/starter
 
 - Go to [Remix](https://remix.ethereum.org/): online IDE(integrated development environment)
 - Write a contract
+  - memory: _greeting variable should be stored in memory. The variable is used only inside function. This will disappear when the function call ends.
+    - cf storage: stored permanently on the blockchain. State variables is stored in storage. This means that it costs gas fee.
+  - public: function is public by default
+    - cf private, internal, external
+  - view: it's only viewing the data but not modifying it. doesn't require gas fee.
 
 ```javascript
-// SPDX-License-Identifier: GPL-3.0
+// Specift the solidity version and add a license
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 contract GreetingContract {
     string greeting;
 
     //create a function that writes a greeting to the smart contract
-    function postGreeting(string memory _greeting) public{
+    function postGreeting(string memory _greeting) public {
         greeting = _greeting;
     }
     
     //create a function the reads the greeting from the smart contract
-    function getGreeting() public view returns(string memory){
+    function getGreeting() public view returns(string memory) {
         return greeting;
     }
 
@@ -105,7 +111,7 @@ function getAllGreetings() public view returns(string[] memory) {
 - Use struct
 
 ```javascript
-// SPDX-License-Identifier: GPL-3.0
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
 contract GreetingContract {
@@ -132,9 +138,11 @@ contract GreetingContract {
 - What is Polygon?
 - Why Polygon?
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
-  - Network: 
+  - Network:
 - Faucet
 - Connect Polygon network on Remix and deploy (same process)
+- Connect Polygon network on frontend (manually for now)
+  - Check the network
 ### Hardhat
 
 - What is [Hardhat](https://hardhat.org/)?

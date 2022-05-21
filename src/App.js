@@ -41,8 +41,9 @@ function App() {
 
   const connectAccount = async () => {
     const { ethereum } = window;
-    const provider = new ethers.providers.Web3Provider(ethereum) // provider: connection to the ethereum network
-    const accounts = await provider.listAccounts() // all account addresses managed by this provider
+    // Request access to account.
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    console.log('accounts', accounts);
     setAccount(accounts[0])
   }
 
@@ -50,7 +51,7 @@ function App() {
     connectAccount();
     if (account) {
       const { ethereum } = window;
-      const provider = new ethers.providers.Web3Provider(ethereum);
+      const provider = new ethers.providers.Web3Provider(ethereum); // provider: connection to the ethereum network
       const signer = provider.getSigner(); // signer: holds your private key and can sign things
       const _greetingContract = new ethers.Contract(greetingContractAddress, greetingContractABI, signer); // define the contract object
       setGreetingContract(_greetingContract);
