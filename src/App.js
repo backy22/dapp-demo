@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { ethers } from 'ethers';
+import { networks } from './utils/networks';
 
 function App() {
   const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState('');
   const [account, setAccount] = useState('');
 
-  const greetingContractAddress = '0x2287786991A37fF7237AcE1d0dc3512573EceBfD';
+  const greetingContractAddress = '0xF0077df358b1Fc15FcAFCD6950c6EAC280ca7bD2';
   const greetingContractABI = [
     {
       "inputs": [
@@ -47,8 +48,22 @@ function App() {
     setAccount(accounts[0])
   }
 
+  const checkNetwork = async () => {
+    const { ethereum } = window;
+    const chainId = await ethereum.request({ method: 'eth_chainId' });
+    console.log('chainId', networks[chainId]);
+
+    ethereum.on('chainChanged', handleChainChanged);
+
+		// Reload the page when they change networks
+		function handleChainChanged(_chainId) {
+			window.location.reload();
+		}
+  }
+
   useEffect(() => {
     connectAccount();
+    checkNetwork();
     if (account) {
       const { ethereum } = window;
       const provider = new ethers.providers.Web3Provider(ethereum); // provider: connection to the ethereum network
