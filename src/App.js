@@ -6,9 +6,10 @@ function App() {
   const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState('');
   const [account, setAccount] = useState('');
+  const [greeterContract, setGreeterContract] = useState(null);
 
-  const greetingContractAddress = '0x2287786991A37fF7237AcE1d0dc3512573EceBfD';
-  const greetingContractABI = [
+  const greeterContractAddress = '0x2287786991A37fF7237AcE1d0dc3512573EceBfD';
+  const greeterContractABI = [
     {
       "inputs": [
         {
@@ -19,7 +20,7 @@ function App() {
       ],
       "name": "postGreeting",
       "outputs": [],
-      "stateMutability": "nonpayable",
+      "stateMutability": "nonpayable", // this function does not aceept any ether
       "type": "function"
     },
     {
@@ -37,8 +38,6 @@ function App() {
     }
   ];
 
-  const [greetingContract, setGreetingContract] = useState(null);
-
   const connectAccount = async () => {
     const { ethereum } = window;
     // Request access to account.
@@ -53,8 +52,8 @@ function App() {
       const { ethereum } = window;
       const provider = new ethers.providers.Web3Provider(ethereum); // provider: connection to the ethereum network
       const signer = provider.getSigner(); // signer: holds your private key and can sign things
-      const _greetingContract = new ethers.Contract(greetingContractAddress, greetingContractABI, signer); // define the contract object
-      setGreetingContract(_greetingContract);
+      const _greeterContract = new ethers.Contract(greeterContractAddress, greeterContractABI, signer); // define the contract object
+      setGreeterContract(_greeterContract);
     }
   }, [account]);
 
@@ -68,12 +67,12 @@ function App() {
   }
 
   const postGreeting = async() => {
-    const postGreetingPromise = greetingContract.postGreeting(greeting);
+    const postGreetingPromise = greeterContract.postGreeting(greeting);
     await postGreetingPromise;
   }
 
   const getGreeting = async() => {
-    const getGreetingPromise = greetingContract.getGreeting();
+    const getGreetingPromise = greeterContract.getGreeting();
     const Greeting = await getGreetingPromise;
     setResult(Greeting);
   }

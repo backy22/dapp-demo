@@ -5,7 +5,7 @@
   - [Table of Contents](#table-of-contents)
   - [Basic knowledge](#basic-knowledge)
   - [What I do demo today](#what-i-do-demo-today)
-  - [Prerequisites](#prerequisites)
+  - [Preparation](#preparation)
   - [Web page with React](#web-page-with-react)
   - [Solidiy smart contract](#solidiy-smart-contract)
   - [Connect the web page with the smart contracts](#connect-the-web-page-with-the-smart-contracts)
@@ -26,7 +26,7 @@
 
 ![diagram](/dapp-diagram.png)
 
-## Prerequisites
+## Preparation
 
 - [Metamask Chrome extension](https://metamask.io/)
 - [Testnet faucet](https://faucet.paradigm.xyz/)
@@ -49,14 +49,14 @@ https://github.com/backy22/dapp-demo/tree/starter
     - cf storage: stored permanently on the blockchain. State variables is stored in storage. This means that it costs gas fee.
   - public: function is public by default
     - cf private, internal, external
-  - view: it's only viewing the data but not modifying it. doesn't require gas fee.
+  - view: it's only viewing the data but not modifying it. doesn't cost gas fee.
 
 ```javascript
 // Specift the solidity version and add a license
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract GreetingContract {
+contract Greeter {
     string greeting;
 
     //create a function that writes a greeting to the smart contract
@@ -92,7 +92,10 @@ npm i ethers
 
 - Copy and paste the contract address
 - Copy and paste ABI(Application Binary Interface)
-  - ABI: Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+  - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+- Test
+  - Connect the wallet
+  - See the transactions on etherscan
 ## Advanced
 
 ### Modify the smart contract
@@ -114,7 +117,7 @@ function getAllGreetings() public view returns(string[] memory) {
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-contract GreetingContract {
+contract Greeter {
 
     struct Greeting {
         address sender;
@@ -139,7 +142,7 @@ contract GreetingContract {
 - Why Polygon?
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
   - Network:
-- Faucet
+- [Faucet](https://mumbaifaucet.com/)
 - Connect Polygon network on Remix and deploy (same process)
 - Connect Polygon network on frontend (manually for now)
   - Check the network
@@ -147,3 +150,25 @@ contract GreetingContract {
 
 - What is [Hardhat](https://hardhat.org/)?
   - Hardhat: Ethereum Developement environment(EVM)
+  - Enable to deploy your contracts, run tests, debug Solidity code without with live environment
+- [hardhat-demo-app](https://github.com/backy22/hardhat-dapp-demo)
+
+compile
+
+```
+npx hardhat compile
+```
+
+run the test accounts
+
+```
+npx hardhat node
+```
+
+deploy to the local network
+
+```
+npx hardhat run scripts/deploy.js --network localhost
+```
+
+- connect the local account in metamask to test
