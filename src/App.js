@@ -7,10 +7,11 @@ function App() {
   const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState('');
   const [account, setAccount] = useState('');
+  const [greeterContract, setGreeterContract] = useState(null);
   const [allGreetings, setAllGreetings] = useState([]);
 
-  const greetingContractAddress = '0x53E926e287fCC768c511Dcc28d2f9004f41fAd21';
-  const greetingContractABI =  [
+  const greeterContractAddress = '0x53E926e287fCC768c511Dcc28d2f9004f41fAd21';
+  const greeterContractABI = [
     {
       "inputs": [
         {
@@ -75,12 +76,11 @@ function App() {
     }
   ]
 
-  const [greetingContract, setGreetingContract] = useState(null);
-
   const connectAccount = async () => {
     const { ethereum } = window;
-    const provider = new ethers.providers.Web3Provider(ethereum)
-    const accounts = await provider.listAccounts()
+    // Request access to account.
+    const accounts = await ethereum.request({ method: 'eth_accounts' });
+    console.log('accounts', accounts);
     setAccount(accounts[0])
   }
 
@@ -88,11 +88,10 @@ function App() {
     connectAccount();
     if (account) {
       const { ethereum } = window;
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      console.log('signer', signer);
-      const _greetingContract = new ethers.Contract(greetingContractAddress, greetingContractABI, signer);
-      setGreetingContract(_greetingContract);
+      const provider = new ethers.providers.Web3Provider(ethereum); // provider: connection to the ethereum network
+      const signer = provider.getSigner(); // signer: holds your private key and can sign things
+      const _greeterContract = new ethers.Contract(greeterContractAddress, greeterContractABI, signer); // define the contract object
+      setGreeterContract(_greeterContract);
     }
   }, [account]);
 
@@ -106,18 +105,18 @@ function App() {
   }
 
   const postGreeting = async() => {
-    const postGreetingPromise = greetingContract.postGreeting(greeting);
+    const postGreetingPromise = greeterContract.postGreeting(greeting);
     await postGreetingPromise;
   }
 
   const getGreeting = async() => {
-    const getGreetingPromise = greetingContract.getGreeting();
+    const getGreetingPromise = greeterContract.getGreeting();
     const Greeting = await getGreetingPromise;
     setResult(Greeting);
   }
 
   const getAllGreetings = async() => {
-    const getAllGreetingsPromise = greetingContract.getAllGreetings();
+    const getAllGreetingsPromise = greeterContract.getAllGreetings();
     const Greetings = await getAllGreetingsPromise;
     console.log(Greetings)
     setAllGreetings(Greetings);
