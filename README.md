@@ -104,7 +104,7 @@ npm i ethers
 
 ### Modify the smart contract
 
-- Use array instead of string
+- Use array
 
 ```javascript
 string[] greetings;
@@ -115,7 +115,7 @@ function getAllGreetings() public view returns(string[] memory) {
 }
 ```
 
-- Use struct
+- Use struct: we can create custom data type using struct
 
 ```javascript
 // SPDX-License-Identifier: MIT
@@ -128,7 +128,7 @@ contract Greeter {
         string greeting;
     }
 
-    Greeting[] public greetings;
+    Greeting[] greetings;
 
     function postGreeting(string memory _greeting) public {
         greetings.push(Greeting(msg.sender, _greeting));
