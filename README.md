@@ -149,6 +149,7 @@ contract Greeter {
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
 - [Faucet](https://mumbaifaucet.com/)
 - Connect Polygon network on Remix and deploy (same process)
+  - Check the [polygon scan](https://mumbai.polygonscan.com/tx/0xf7a1a2b3ac9496433796aa3ba458b0eaffe2e20cc0deb032ee179f54188781c5)
 - Connect Polygon network on frontend (manually for now)
   - Check the network
 ### Hardhat

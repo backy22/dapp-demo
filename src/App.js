@@ -39,7 +39,12 @@ function App() {
   ];
 
   const connectAccount = async () => {
-    const { ethereum } = window;
+    const { ethereum } = window; // Metamask injects a global API into websites at window.ethereum
+    if (!ethereum) {
+      alert("Get MetaMask!");
+      return;
+    }
+
     // Request access to account.
     const accounts = await ethereum.request({ method: 'eth_accounts' });
     console.log('accounts', accounts);
