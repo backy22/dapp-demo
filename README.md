@@ -3,8 +3,8 @@
 ## Table of Contents
 - [Developing your first Dapp (QM talk)](#developing-your-first-dapp-qm-talk)
   - [Table of Contents](#table-of-contents)
-  - [Basic knowledge](#basic-knowledge)
-  - [What I do demo today](#what-i-do-demo-today)
+  - [Terminology](#terminology)
+  - [What I demo today](#what-i-demo-today)
   - [Preparation](#preparation)
   - [Web page with React](#web-page-with-react)
   - [Solidiy smart contract](#solidiy-smart-contract)
@@ -13,16 +13,19 @@
     - [Modify the smart contract](#modify-the-smart-contract)
     - [Deploy on Polygon](#deploy-on-polygon)
     - [Hardhat](#hardhat)
-## Basic knowledge
+## Terminology
 
 - Dapp(A decentralized application): an application built on a decentralized network that combines a smart contract and a frontend user interface.
 - Blockchain:
+    >[a public database that is updated and shared across many computers in a network.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Smart Contract:
-- Ethereun:
+    >[A reusable snippet of code (a program) which a developer publishes into EVM state.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Solidity: a programming language for smart contracts
-- Web3:
+- Web3: 
+    >[the stack of protocols that enable fully decentralized applications.](https://twitter.com/jbrukh/status/1449734638788821002)
+    >[Web3 uses blockchains, cryptocurrencies, and NFTs to give power back to the users in the form of ownership. ](https://ethereum.org/en/web3/#introduction)
 
-## What I do demo today
+## What I demo today
 
 ![diagram](/dapp-diagram.png)
 
@@ -77,7 +80,7 @@ contract Greeter {
 - Compile
 - Deploy
   - Select `Injected Web3`
-  - Gas
+  - Gas: fee to execute transactions
 - Check on Etherscan
 - Test on Remix
 
@@ -139,9 +142,10 @@ contract Greeter {
 ### Deploy on Polygon
 
 - What is Polygon?
+  - Ethereum sidechain. parallel blockchain running alongside the main Ethereum blockchain
 - Why Polygon?
+  - speedy transactions and low fees
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
-  - Network:
 - [Faucet](https://mumbaifaucet.com/)
 - Connect Polygon network on Remix and deploy (same process)
 - Connect Polygon network on frontend (manually for now)
