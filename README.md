@@ -155,7 +155,7 @@ contract Greeter {
 
 - What is [Hardhat](https://hardhat.org/)?
   - Hardhat: Ethereum Developement environment(EVM)
-  - Enable to deploy your contracts, run tests, debug Solidity code without with live environment
+  - Enable to deploy your contracts, run tests, debug Solidity code without live environment
 - [hardhat-demo-app](https://github.com/backy22/hardhat-dapp-demo)
 
 compile
