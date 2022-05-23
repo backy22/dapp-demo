@@ -86,16 +86,17 @@ contract Greeter {
 
 ## Connect the web page with the smart contracts
 
+- Write the code to connect account
 - Import the [Ethers.js](https://docs.ethers.io/v5/)
   - Ethers.js: Ethereum Web Client Library. Interact with Ethereum Blockchain from client-side.
 
 ```
 npm i ethers
 ```
-
-- Copy and paste the contract address
-- Copy and paste ABI(Application Binary Interface)
-  - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+- Connect the smart contract
+  - Copy and paste the contract address
+  - Copy and paste ABI(Application Binary Interface)
+    - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
 - Test
   - Connect the wallet
   - See the transactions on etherscan

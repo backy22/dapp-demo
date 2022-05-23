@@ -67,13 +67,11 @@ function App() {
   }
 
   const postGreeting = async() => {
-    const postGreetingPromise = greeterContract.postGreeting(greeting);
-    await postGreetingPromise;
+    await greeterContract.postGreeting(greeting);
   }
 
   const getGreeting = async() => {
-    const getGreetingPromise = greeterContract.getGreeting();
-    const Greeting = await getGreetingPromise;
+    const Greeting = await greeterContract.getGreeting();
     setResult(Greeting);
   }
 
