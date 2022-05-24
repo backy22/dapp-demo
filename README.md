@@ -15,7 +15,8 @@
     - [Hardhat](#hardhat)
 ## Terminology
 
-- Dapp(A decentralized application): an application built on a decentralized network that combines a smart contract and a frontend user interface.
+- Dapp(A decentralized application)
+  >[an application built on a decentralized network that combines a smart contract and a frontend user interface](https://ethereum.org/en/developers/docs/dapps/#top)
 - Blockchain:
     >[a public database that is updated and shared across many computers in a network.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Smart Contract:
