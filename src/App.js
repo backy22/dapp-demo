@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   const [greeting, setGreeting] = useState('');
   const [result, setResult] = useState('');
+  const [account, setAccount] = useState('');
+  const [greeterContract, setGreeterContract] = useState(null);
 
   const handleChange = (e) => {
     setGreeting(e.target.value);
