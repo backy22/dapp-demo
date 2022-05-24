@@ -9,7 +9,7 @@
   - [Web page with React](#web-page-with-react)
   - [Solidiy smart contract](#solidiy-smart-contract)
   - [Connect the web page with the smart contracts](#connect-the-web-page-with-the-smart-contracts)
-  - [Advanced](#advanced)
+  - [In real life](#in-real-life)
     - [Modify the smart contract](#modify-the-smart-contract)
     - [Deploy on Polygon](#deploy-on-polygon)
     - [Hardhat](#hardhat)
@@ -19,7 +19,7 @@
 - Blockchain:
     >[a public database that is updated and shared across many computers in a network.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Smart Contract:
-    >[A reusable snippet of code (a program) which a developer publishes into EVM state.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
+    >[a reusable snippet of code (a program) which a developer publishes into EVM state.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Solidity: a programming language for smart contracts
 - Web3: 
     >[the stack of protocols that enable fully decentralized applications.](https://twitter.com/jbrukh/status/1449734638788821002)
@@ -97,10 +97,10 @@ npm i ethers
   - Copy and paste the contract address
   - Copy and paste ABI(Application Binary Interface)
     - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
-- Test
+- Test on the browser
   - Connect the wallet
   - See the transactions on etherscan
-## Advanced
+## In real life
 
 ### Modify the smart contract
 
@@ -116,6 +116,7 @@ function getAllGreetings() public view returns(string[] memory) {
 ```
 
 - Use struct: we can create custom data type using struct
+  - msg.sender: global variables that are available to all functions. the address of the person (or smart contract) who called the current function.
 
 ```javascript
 // SPDX-License-Identifier: MIT
@@ -145,7 +146,7 @@ contract Greeter {
 - What is Polygon?
   - Ethereum sidechain. parallel blockchain running alongside the main Ethereum blockchain
 - Why Polygon?
-  - speedy transactions and low fees
+  - Speedy transactions and low fees
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
 - [Faucet](https://mumbaifaucet.com/)
 - Connect Polygon network on Remix and deploy (same process)
