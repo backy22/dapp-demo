@@ -9,7 +9,7 @@
   - [Web page with React](#web-page-with-react)
   - [Solidiy smart contract](#solidiy-smart-contract)
   - [Connect the web page with the smart contracts](#connect-the-web-page-with-the-smart-contracts)
-  - [Advanced](#advanced)
+  - [In real life](#in-real-life)
     - [Modify the smart contract](#modify-the-smart-contract)
     - [Deploy on Polygon](#deploy-on-polygon)
     - [Hardhat](#hardhat)
@@ -19,7 +19,7 @@
 - Blockchain:
     >[a public database that is updated and shared across many computers in a network.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Smart Contract:
-    >[A reusable snippet of code (a program) which a developer publishes into EVM state.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
+    >[a reusable snippet of code (a program) which a developer publishes into EVM state.](https://ethereum.org/en/developers/docs/intro-to-ethereum/)
 - Solidity: a programming language for smart contracts
 - Web3: 
     >[the stack of protocols that enable fully decentralized applications.](https://twitter.com/jbrukh/status/1449734638788821002)
@@ -67,7 +67,7 @@ contract Greeter {
         greeting = _greeting;
     }
     
-    //create a function the reads the greeting from the smart contract
+    //create a function that reads the greeting from the smart contract
     function getGreeting() public view returns(string memory) {
         return greeting;
     }
@@ -81,29 +81,30 @@ contract Greeter {
 - Deploy
   - Select `Injected Web3`
   - Gas: fee to execute transactions
-- Check on Etherscan
+- Check on Etherscan: blockchain explorer that lets you view public data on transactions, smart contracts, addresses etc.
 - Test on Remix
 
 ## Connect the web page with the smart contracts
 
+- Write the code to connect account
 - Import the [Ethers.js](https://docs.ethers.io/v5/)
   - Ethers.js: Ethereum Web Client Library. Interact with Ethereum Blockchain from client-side.
 
 ```
 npm i ethers
 ```
-
-- Copy and paste the contract address
-- Copy and paste ABI(Application Binary Interface)
-  - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
-- Test
+- Connect the smart contract
+  - Copy and paste the contract address
+  - Copy and paste ABI(Application Binary Interface)
+    - [ABI](https://docs.soliditylang.org/en/develop/abi-spec.html): Interface between client-side and blockchain. A representation of the contract's methods in JSON format.
+- Test on the browser
   - Connect the wallet
   - See the transactions on etherscan
-## Advanced
+## In real life
 
 ### Modify the smart contract
 
-- Use array instead of string
+- Use array
 
 ```javascript
 string[] greetings;
@@ -114,7 +115,8 @@ function getAllGreetings() public view returns(string[] memory) {
 }
 ```
 
-- Use struct
+- Use struct: you can create custom data type using struct
+  - msg.sender: global variables that are available to all functions. the address of the person (or smart contract) who called the current function.
 
 ```javascript
 // SPDX-License-Identifier: MIT
@@ -127,7 +129,7 @@ contract Greeter {
         string greeting;
     }
 
-    Greeting[] public greetings;
+    Greeting[] greetings;
 
     function postGreeting(string memory _greeting) public {
         greetings.push(Greeting(msg.sender, _greeting));
@@ -144,17 +146,18 @@ contract Greeter {
 - What is Polygon?
   - Ethereum sidechain. parallel blockchain running alongside the main Ethereum blockchain
 - Why Polygon?
-  - speedy transactions and low fees
+  - Speedy transactions and low fees
 - Add Polygon and Mumbai(Polygon Testnet) network on your Metamask
 - [Faucet](https://mumbaifaucet.com/)
 - Connect Polygon network on Remix and deploy (same process)
+  - Check the [polygon scan](https://mumbai.polygonscan.com/tx/0xf7a1a2b3ac9496433796aa3ba458b0eaffe2e20cc0deb032ee179f54188781c5)
 - Connect Polygon network on frontend (manually for now)
   - Check the network
 ### Hardhat
 
 - What is [Hardhat](https://hardhat.org/)?
   - Hardhat: Ethereum Developement environment(EVM)
-  - Enable to deploy your contracts, run tests, debug Solidity code without with live environment
+  - Enable to deploy your contracts, run tests, debug Solidity code without live environment
 - [hardhat-demo-app](https://github.com/backy22/hardhat-dapp-demo)
 
 compile
