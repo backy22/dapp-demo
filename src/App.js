@@ -134,8 +134,8 @@ function App() {
         <button className="get-btn" type="button" onClick={getGreeting}>Get greeting</button>
         <div className="result">{result}</div>
         <button className="get-btn" type="button" onClick={getAllGreetings}>Get All greetings</button>
-        {allGreetings.map(item => (
-          <div key={item.sender} className="greeting">
+        {allGreetings.map((item, index) => (
+          <div key={index} className="greeting">
             <div className="sender">{shortenAddress(item.sender)}: {item.greeting}</div>
           </div>
         ))}
