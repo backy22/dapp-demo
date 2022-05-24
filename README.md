@@ -78,8 +78,9 @@ contract Greeter {
 - Connect to the wallet
   - Select Rinkeby network
 - Compile
+  - Generate bytecode that EVM can read, and ABI that web application can understand the contract
 - Deploy
-  - Select `Injected Web3`
+  - Select `Injected Web3` to connect Metamask
   - Gas: fee to execute transactions
 - Check on Etherscan: blockchain explorer that lets you view public data on transactions, smart contracts, addresses etc.
 - Test on Remix
@@ -141,6 +142,9 @@ contract Greeter {
 
 }
 ```
+
+※ Smart contracts in Ethereum are immutable by default. Once you create them, there is no way to alter them. If you upgrade the contract, you need to migrate all data from the old contract manually, which costs gas fees.
+
 ### Deploy on Polygon
 
 - What is Polygon?
@@ -155,7 +159,7 @@ contract Greeter {
   - Check the network
 ### Hardhat
 
-- What is [Hardhat](https://hardhat.org/)?
+- What is [Hardhat](https://hardhat.org/getting-started/#overview)?
   - Hardhat: Ethereum Developement environment(EVM)
   - Enable to deploy your contracts, run tests, debug Solidity code without live environment
 - [hardhat-demo-app](https://github.com/backy22/hardhat-dapp-demo)
