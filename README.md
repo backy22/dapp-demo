@@ -67,7 +67,7 @@ contract Greeter {
         greeting = _greeting;
     }
     
-    //create a function the reads the greeting from the smart contract
+    //create a function that reads the greeting from the smart contract
     function getGreeting() public view returns(string memory) {
         return greeting;
     }
@@ -81,7 +81,7 @@ contract Greeter {
 - Deploy
   - Select `Injected Web3`
   - Gas: fee to execute transactions
-- Check on Etherscan
+- Check on Etherscan: blockchain explorer that lets you view public data on transactions, smart contracts, addresses etc.
 - Test on Remix
 
 ## Connect the web page with the smart contracts
@@ -115,7 +115,7 @@ function getAllGreetings() public view returns(string[] memory) {
 }
 ```
 
-- Use struct: we can create custom data type using struct
+- Use struct: you can create custom data type using struct
   - msg.sender: global variables that are available to all functions. the address of the person (or smart contract) who called the current function.
 
 ```javascript
