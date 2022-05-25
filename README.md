@@ -146,6 +146,8 @@ contract Greeter {
 
 ※ Smart contracts in Ethereum are immutable by default. Once you create them, there is no way to alter them. If you upgrade the contract, you need to migrate all data from the old contract manually, which costs gas fees.
 
+https://github.com/backy22/dapp-demo/tree/modify-contract
+
 ### Deploy on Polygon
 
 - What is Polygon?
@@ -158,6 +160,8 @@ contract Greeter {
   - Check the [polygon scan](https://mumbai.polygonscan.com/tx/0xf7a1a2b3ac9496433796aa3ba458b0eaffe2e20cc0deb032ee179f54188781c5)
 - Connect Polygon network on frontend (manually for now)
   - Check the network
+
+https://github.com/backy22/dapp-demo/tree/polygon-network
 ### Hardhat
 
 - What is [Hardhat](https://hardhat.org/getting-started/#overview)?
