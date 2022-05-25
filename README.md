@@ -49,11 +49,11 @@ https://github.com/backy22/dapp-demo/tree/starter
 
 - Go to [Remix](https://remix.ethereum.org/): online IDE(integrated development environment)
 - Write a contract
-  - memory: _greeting variable should be stored in memory. The variable is used only inside function. This will disappear when the function call ends.
+  - **memory**: _greeting variable should be stored in memory. The variable is used only inside function. This will disappear when the function call ends.
     - cf storage: stored permanently on the blockchain. State variables is stored in storage. This means that it costs gas fee.
-  - public: function is public by default
+  - **public**: function is public by default
     - cf private, internal, external
-  - view: it's only viewing the data but not modifying it. doesn't cost gas fee.
+  - **view**: it's only viewing the data but not modifying it. doesn't cost gas fee.
 
 ```javascript
 // Specift the solidity version and add a license
